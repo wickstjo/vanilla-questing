@@ -176,6 +176,7 @@ function general(settings) {
             ['Is the route based on someone elses work?', 'No'],
             ['Is it final/perfect?', 'No, but very easy to modify'],
             ['Would I like to collaborate?', 'Absolutely'],
+            ['How can I contribute?', 'The project is open source <a href="https://github.com/wickstjo/vanilla-questing" target="_blank">on GitHub</a>'],
             ['Will you route for non-humans?', 'Yes'],
             ['Will there be a horde version?', 'Yes, probably during xmas'],
             ['How about dungeon "quest run" guides?', 'Yes, likely in short video format'],
