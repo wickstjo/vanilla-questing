@@ -46,7 +46,7 @@ function jump(event, state, dispatch) {
    });
 }
 
-// JUMP TO A SPECIFIC LEVEL IN PROGRESS
+// JUMP TO A SPECIFIC LEVEL
 function jumpToLevel(level, state, dispatch) {
    // FIND WHAT BLOCK MATCHES GIVEN LEVEL
    const newBlock = state.data.route.findIndex((route, iRoute) => {
