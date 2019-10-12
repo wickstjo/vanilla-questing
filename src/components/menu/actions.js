@@ -37,10 +37,10 @@ function Actions() {
 
             // LOG SUCCESS & HIDE PROMPT
             console.log('Preload Complete!');
-      
+
             // HIDE PROMPT
             dispatch({ type: 'hide-prompt' })
-      
+
             // SHOW MESSAGE
             dispatch({
                type: 'add-message',
@@ -50,6 +50,14 @@ function Actions() {
                }
             })
          })
+      })
+   }
+
+   // JUMP TO A SPECIFIC LEVEL
+   function jump() {
+      dispatch({
+         type: 'show-prompt',
+         payload: 'jump-level'
       })
    }
 
@@ -64,6 +72,11 @@ function Actions() {
             header={ 'Import Custom Route' }
             icon={ 'import' }
             func={ custom }
+         />
+         <Sub
+            header={ 'Jump to level' }
+            icon={ 'jump' }
+            func={ jump }
          />
       </Main>
    )

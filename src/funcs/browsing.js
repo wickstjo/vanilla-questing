@@ -1,7 +1,7 @@
 // BROWSE TO PREVIOUS BLOCK
 function previous(state, dispatch) {
    const prev = state.current - 1;
-   
+
    // IF THERE IS ROOM TO MOVE
    if (prev >= 0) {
       dispatch({
@@ -14,7 +14,7 @@ function previous(state, dispatch) {
 // BROWSE TO NEXT BLOCK
 function next(state, dispatch) {
    const next = state.current + 1;
-   
+
    // IF THERE IS ROOM TO MOVE
    if (next <= state.data.route.length - 1) {
       dispatch({
@@ -44,6 +44,30 @@ function jump(event, state, dispatch) {
       type: 'block',
       payload: final
    });
+}
+
+// JUMP TO A SPECIFIC LEVEL IN PROGRESS
+function jumpToLevel(level, state, dispatch) {
+   // FIND WHAT BLOCK MATCHES GIVEN LEVEL
+   const newBlock = state.data.route.findIndex((route, iRoute) => {
+      return Math.floor(route.experience) === Math.floor(level);
+   });
+   // MAKE SURE THE NEW BLOCK EXISTS
+   if (newBlock !== -1) {
+      dispatch({
+         type: 'block',
+         payload: newBlock
+      });
+   } else {
+      // SHOW ERROR MESSAGE
+      dispatch({
+         type: 'add-message',
+         payload: {
+            msg: 'Sorry, we could not jump to that level for some reason',
+            type: 'bad'
+         }
+      })
+   }
 }
 
 // BROWSING KEY LISTENER
@@ -95,5 +119,6 @@ export {
    next,
    previous,
    jump,
+   jumpToLevel,
    key_listener
 }
