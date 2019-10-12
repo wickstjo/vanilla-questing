@@ -40,6 +40,7 @@ function JumpLevel() {
               onChange={e => set_local({ levelInput: e.target.value })}
               min={5}
               max={60}
+              autofocus="true"
             />
             <input id={'good'} type={'submit'} value={'Jump'} />
           </form>
