@@ -8,10 +8,11 @@ import Create from './prompt/create';
 import References from './prompt/references';
 import Export from './prompt/export';
 import ImportProfiles from './prompt/import_profiles';
+import JumpLevel from './prompt/jump_level';
 
 // PROMPT CONTAINER
 function Prompt() {
-   
+
    // GLOBAL STATE
    const { state, dispatch } = useContext(Context);
 
@@ -77,6 +78,11 @@ function Content({ type }) {
       // IMPORT ROUTE
       case 'import-profiles': {
          return <ImportProfiles />
+      }
+
+      // JUMP TO A SPECIFIC LEVEL
+      case 'jump-level': {
+         return <JumpLevel />
       }
 
       // FALLBACK

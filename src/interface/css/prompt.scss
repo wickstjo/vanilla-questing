@@ -22,8 +22,8 @@
          text-transform: uppercase;
          margin-bottom: 5px;
       }
-   
-      #create, #import, #export {
+
+      #create, #import, #export, #jump {
          background: rgba(0, 0, 0, 0.473);
          min-width: 300px;
          padding: 2px;
@@ -42,7 +42,7 @@
             color: #333333;
             flex: 1;
          }
-         
+
          // BUTTONS
          #good, #bad {
             background: rgba(87, 194, 65, 0.897);
@@ -53,11 +53,11 @@
             transition: background 0.3s;
             padding: 3px 5px;
          }
-         
+
          #good {
             cursor: pointer;
          }
-         
+
          #bad {
             background: rgba(194, 65, 65, 0.897);
             border: 2px solid rgba(199, 70, 70, 0.897);
@@ -207,13 +207,13 @@
             .red-icon { background-image: url('../images/icons/objectives.png'); }
             .blue-icon { background-image: url('../images/icons/special.png'); }
          }
-         
+
          .container:last-child {
             margin-right: 0px;
          }
       }
 
-      #export, #import {
+      #export, #import, #jump {
          textarea {
             width: 100%;
             resize: none;
@@ -234,14 +234,23 @@
             padding: 3px 5px;
             width: 100%;
          }
-         
+
          #good {
             cursor: pointer;
          }
-         
+
          #bad {
             background: rgba(194, 65, 65, 0.897);
             border: 2px solid rgba(199, 70, 70, 0.897);
+         }
+      }
+
+      #jump {
+         // LEVEL INPUT FIELD
+         #level {
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
          }
       }
 
@@ -298,5 +307,5 @@
    bottom: 0;
    right: 0;
    position: absolute;
-   z-index: -1;   
+   z-index: -1;
 }

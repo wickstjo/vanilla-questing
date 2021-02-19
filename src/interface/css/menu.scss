@@ -71,7 +71,7 @@
          flex: 1;
          padding: 7px 9px;
       }
-      
+
       .loaded {
          padding: 7px 9px;
       }
@@ -96,6 +96,7 @@
       #import { background: url('../images/icons/import.png'); }
       #import_profiles { background: url('../images/icons/import_profiles.png'); }
       #export_profiles { background: url('../images/icons/export_profiles.png'); }
+      #jump { background: url('../images/icons/jump.png'); }
    }
 
    .item:hover {
@@ -117,7 +118,7 @@
       bottom: 0;
       right: 0;
       position: absolute;
-      z-index: -1;   
+      z-index: -1;
    }
 
    .dead {
@@ -156,6 +157,6 @@
          opacity: 1;
       }
    }
-   
+
    #loaded img { opacity: 1; }
 }
