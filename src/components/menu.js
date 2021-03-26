@@ -8,21 +8,19 @@ import Actions from './menu/actions';
 import Profiles from './menu/profiles';
 import Create from './menu/create';
 
-function Menu() { return (
-   <div id="menu"><div className="inner">
-      <div>
-         <Main header={ 'Route' } link={ '/vanilla-questing/' } />
-         <Main header={ 'Manifesto' } link={ '/vanilla-questing/manifesto' } />
-         <Help />
-         <Main header={ 'Settings' } link={ '/vanilla-questing/settings' } />
-      </div>
-      <div>
-         <Storage />
-         <Actions />
-         <Profiles />
-         <Create />
-      </div>
-   </div></div>
+export default () => { return (
+    <div id="menu"><div className="inner">
+        <div>
+            <Main header={ 'Route' } link={ '/vanilla-questing/' } />
+            <Main header={ 'Manifesto' } link={ '/vanilla-questing/manifesto' } />
+            <Help />
+            <Main header={ 'Settings' } link={ '/vanilla-questing/settings' } />
+        </div>
+        <div>
+            <Storage />
+            <Actions />
+            <Profiles />
+            <Create />
+        </div>
+    </div></div>
 )}
-
-export default Menu;

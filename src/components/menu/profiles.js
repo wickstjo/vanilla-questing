@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Context } from "../../context";
+import { Context } from "../../assets/context";
 import { specific } from '../../funcs/build';
 import Main from './main';
 

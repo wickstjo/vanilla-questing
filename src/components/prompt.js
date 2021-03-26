@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { Context } from "../context";
+import { Context } from "../assets/context";
 import { sleep } from "../funcs/misc";
 import '../interface/css/prompt.scss';
 
@@ -10,80 +10,73 @@ import Export from './prompt/export';
 import ImportProfiles from './prompt/import_profiles';
 
 // PROMPT CONTAINER
-function Prompt() {
-   
-   // GLOBAL STATE
-   const { state, dispatch } = useContext(Context);
+export default () => {
 
-   // TOGGLE VISIBILITY BASED ON STATE
-   useEffect(() => {
-      if (state.prompt.visible) {
-         document.getElementById('prompt').style.display = 'flex';
-         sleep(100).then(() => {
-            document.getElementById('prompt').style.opacity = 1;
-         });
-      } else {
-         document.getElementById('prompt').style.opacity = 0;
-         sleep(100).then(() => {
-            document.getElementById('prompt').style.display = 'none';
-         });
-      }
-   }, [state.prompt.visible]);
+    // GLOBAL STATE
+    const { state, dispatch } = useContext(Context);
 
-   return (
-      <div id={ 'prompt' }>
-         <div id={ 'inner' }>
-            <Content
-               type={ state.prompt.type }
-            />
-            <span
-               id="close"
-               onClick={() => { dispatch({ type: 'hide-prompt' }) }}
-            />
-         </div>
-      </div>
-   )
+    // TOGGLE VISIBILITY BASED ON STATE
+    useEffect(() => {
+        if (state.prompt.visible) {
+            document.getElementById('prompt').style.display = 'flex';
+            sleep(100).then(() => {
+                document.getElementById('prompt').style.opacity = 1;
+            });
+        } else {
+            document.getElementById('prompt').style.opacity = 0;
+            sleep(100).then(() => {
+                document.getElementById('prompt').style.display = 'none';
+            });
+        }
+    }, [state.prompt.visible]);
+
+    return (
+        <div id={ 'prompt' }>
+            <div id={ 'inner' }>
+                <Content type={ state.prompt.type } />
+                <span id="close" onClick={() => { dispatch({ type: 'hide-prompt' }) }} />
+            </div>
+        </div>
+    )
 }
 
 // PROMPT CONTENT
 function Content({ type }) {
-   switch(type) {
+    switch(type) {
 
-      // LOADING
-      case 'loading': {
-         return <div className="lds-dual-ring" />
-      }
+        // LOADING
+        case 'loading': {
+            return <div className="lds-dual-ring" />
+        }
 
-      // IMPORT ROUTE
-      case 'import-route': {
-         return <ImportRoute />
-      }
+        // IMPORT ROUTE
+        case 'import-route': {
+            return <ImportRoute />
+        }
 
-      // CREATE PROFILE
-      case 'create': {
-         return <Create />
-      }
+        // CREATE PROFILE
+        case 'create': {
+            return <Create />
+        }
 
-      // REFERENCES
-      case 'references': {
-         return <References />
-      }
+        // REFERENCES
+        case 'references': {
+            return <References />
+        }
 
-      // EXPORT PROFILES
-      case 'export': {
-         return <Export />
-      }
+        // EXPORT PROFILES
+        case 'export': {
+            return <Export />
+        }
 
-      // IMPORT ROUTE
-      case 'import-profiles': {
-         return <ImportProfiles />
-      }
+        // IMPORT ROUTE
+        case 'import-profiles': {
+            return <ImportProfiles />
+        }
 
-      // FALLBACK
-      default: {
-         return <div>Prompt type error</div>
-      }
-   }
+        // FALLBACK
+        default: {
+            return <div>Prompt type error</div>
+        }
+    }
 }
-
-export default Prompt;

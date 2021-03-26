@@ -28,7 +28,7 @@
    foreignobject {
       width: 100%;
       height: 100%;
-      z-index: 10;
+      z-index: 10;   
    }
 
    circle {
@@ -41,8 +41,8 @@
 
    .waypoint {
       position: absolute;
-      width: 1px;
-      height: 1px;
+      width: 10px;
+      height: 10px;
 
       span {
          background: rgba(0, 0, 0, 0.76);
@@ -51,6 +51,16 @@
          padding: 1px;
          border-radius: 25%;
          opacity: 1;
+
+         #wp1 { background: url('../images/numbers/1.png'); }
+         #wp2 { background: url('../images/numbers/2.png'); }
+         #wp3 { background: url('../images/numbers/3.png'); }
+         #wp4 { background: url('../images/numbers/4.png'); }
+         #wp5 { background: url('../images/numbers/5.png'); }
+         #wp6 { background: url('../images/numbers/6.png'); }
+         #wp7 { background: url('../images/numbers/7.png'); }
+         #wp8 { background: url('../images/numbers/8.png'); }
+         #wp9 { background: url('../images/numbers/9.png'); }
       }
 
       // NUMBER ALIGNMENT
@@ -100,3 +110,51 @@
    background-image: url('../images/next.png');
    right: 0px;
 }
+
+// ZONES -- USE MAP SCRIPT TO GENERATE
+#map.durotar { background: url('../images/maps/durotar.jpg'); }
+#map.mulgore { background: url('../images/maps/mulgore.jpg'); }
+#map.ungoro { background: url('../images/maps/ungoro.jpg'); }
+#map.morogh { background: url('../images/maps/morogh.jpg'); }
+#map.duskwood { background: url('../images/maps/duskwood.jpg'); }
+#map.tanaris { background: url('../images/maps/tanaris.jpg'); }
+#map.epl { background: url('../images/maps/epl.jpg'); }
+#map.deadwind { background: url('../images/maps/deadwind.jpg'); }
+#map.undercity { background: url('../images/maps/undercity.jpg'); }
+#map.thunderbluff { background: url('../images/maps/thunderbluff.jpg'); }
+#map.steppes { background: url('../images/maps/steppes.jpg'); }
+#map.ashenvale { background: url('../images/maps/ashenvale.jpg'); }
+#map.loch { background: url('../images/maps/loch.jpg'); }
+#map.azshara { background: url('../images/maps/azshara.jpg'); }
+#map.arathi { background: url('../images/maps/arathi.jpg'); }
+#map.redridge { background: url('../images/maps/redridge.jpg'); }
+#map.hillsbrad { background: url('../images/maps/hillsbrad.jpg'); }
+#map.searing { background: url('../images/maps/searing.jpg'); }
+#map.feralas { background: url('../images/maps/feralas.jpg'); }
+#map.wpl { background: url('../images/maps/wpl.jpg'); }
+#map.ironforge { background: url('../images/maps/ironforge.jpg'); }
+#map.needles { background: url('../images/maps/needles.jpg'); }
+#map.badlands { background: url('../images/maps/badlands.jpg'); }
+#map.stonetalon { background: url('../images/maps/stonetalon.jpg'); }
+#map.blasted { background: url('../images/maps/blasted.jpg'); }
+#map.hinterlands { background: url('../images/maps/hinterlands.jpg'); }
+#map.silverpine { background: url('../images/maps/silverpine.jpg'); }
+#map.moonglade { background: url('../images/maps/moonglade.jpg'); }
+#map.tirisfal { background: url('../images/maps/tirisfal.jpg'); }
+#map.darnassus { background: url('../images/maps/darnassus.jpg'); }
+#map.winterspring { background: url('../images/maps/winterspring.jpg'); }
+#map.westfall { background: url('../images/maps/westfall.jpg'); }
+#map.wetlands { background: url('../images/maps/wetlands.jpg'); }
+#map.silithus { background: url('../images/maps/silithus.jpg'); }
+#map.stormwind { background: url('../images/maps/stormwind.jpg'); }
+#map.teldrassil { background: url('../images/maps/teldrassil.jpg'); }
+#map.stv { background: url('../images/maps/stv.jpg'); }
+#map.elwynn { background: url('../images/maps/elwynn.jpg'); }
+#map.orgrimmar { background: url('../images/maps/orgrimmar.jpg'); }
+#map.barrens { background: url('../images/maps/barrens.jpg'); }
+#map.alterac { background: url('../images/maps/alterac.jpg'); }
+#map.desolace { background: url('../images/maps/desolace.jpg'); }
+#map.dustwallow { background: url('../images/maps/dustwallow.jpg'); }
+#map.swamp { background: url('../images/maps/swamp.jpg'); }
+#map.darkshore { background: url('../images/maps/darkshore.jpg'); }
+#map.felwood { background: url('../images/maps/felwood.jpg'); }

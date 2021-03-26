@@ -1,9 +1,9 @@
 import React, { useState, useContext, Fragment } from 'react';
 import EventListener from 'react-event-listener';
 
-import { Context } from "../../context";
+import { Context } from "../../assets/context";
 
-function ImportProfiles() {
+export default () => {
 
    // GLOBAL STATE
    const { state, dispatch } = useContext(Context);
@@ -98,5 +98,3 @@ function ImportProfiles() {
       </Fragment>
    )
 }
-
-export default ImportProfiles;

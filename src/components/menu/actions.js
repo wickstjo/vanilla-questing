@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Context } from "../../context";
+import { Context } from "../../assets/context";
 import { preload_bgs, sleep } from "../../funcs/misc";
 import Main from './main';
 import Sub from './sub';

@@ -7,7 +7,7 @@ import Paragraph from '../components/docs/paragraph';
 import Table from '../components/docs/table';
 import Link from '../components/docs/link';
 
-function Manifesto() { return (
+export default () => { return (
    <div id={ 'docs' }>
       <div id={ 'inner' }>
          <Primary header={ 'Introduction' } id={ 'intro' }>
@@ -138,5 +138,3 @@ function Manifesto() { return (
       </div>
    </div>
 )}
-
-export default Manifesto;

@@ -1,9 +1,9 @@
 import React, { useState, useContext, Fragment } from 'react';
-import { Context } from "../../context";
+import { Context } from "../../assets/context";
 import { custom } from '../../funcs/build';
 import axios from 'axios';
 
-function ImportRoute() {
+export default () => {
 
    // GLOBAL CONTEXT
    const { dispatch } = useContext(Context);
@@ -110,5 +110,3 @@ function ImportRoute() {
       </Fragment>
    )
 }
-
-export default ImportRoute;

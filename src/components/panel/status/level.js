@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Context } from "../../../context";
+import { Context } from "../../../assets/context";
 
 function Level() {
 

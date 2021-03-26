@@ -1,5 +1,5 @@
 import React, { useContext, Fragment } from 'react';
-import { Context } from "../../../context";
+import { Context } from "../../../assets/context";
 
 import { extract } from '../../../funcs/quests';
 import { resource } from '../../../funcs/settings';
@@ -7,7 +7,7 @@ import { resource } from '../../../funcs/settings';
 import Single from '../single';
 import Split from '../split';
 
-function Row({ data, type }) {
+export default ({ data, type }) => {
    return data.map((quest, index) =>
       <Fragment key={ index }>
          <span className={ type + '-icon' } />
@@ -78,5 +78,3 @@ function Name({ data, type }) {
       }
    }
 }
-
-export default Row;

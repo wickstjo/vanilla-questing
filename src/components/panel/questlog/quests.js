@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Context } from "../../../context";
+import { Context } from "../../../assets/context";
 import { filter } from "../../../funcs/quests";
 import Quest from './quest';
 
-function Quests({ visible }) {
+export default ({ visible }) => {
 
    // GLOBAL & LOCAL STATE
    const { state } = useContext(Context);
@@ -51,5 +51,3 @@ function Quests({ visible }) {
       default: { return null; }
    }
 }
-
-export default Quests;

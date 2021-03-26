@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Context } from "../context";
+import { Context } from "../assets/context";
 import '../interface/css/innerbody.scss';
 
 import EventListener from 'react-event-listener';

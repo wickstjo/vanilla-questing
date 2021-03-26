@@ -1,46 +1,46 @@
 import React, { useState, useEffect } from 'react';
+import blank from '../../interface/images/waypoints/space.png';
 
-function Waypoint({ waypoint, block }) {
+export default ({ waypoint, block }) => {
 
-   // LOCAL STATE
-   const [local, set_local] = useState({
-      alignment: null,
-      background: null,
-      position: {},
-   })
+    // LOCAL STATE
+    const [local, set_local] = useState({
+        alignment: null,
+        number: null,
+        position: {},
+    })
 
-   // GENERATE APPROPARIATE CONTENT
-   useEffect(() => {
+    // GENERATE APPROPARIATE CONTENT
+    useEffect(() => {
 
-      // UPDATE LOCAL STATE
-      set_local({
-         alignment: (waypoint.align === undefined) ? 'left' : waypoint.align,
-         background: require('../../interface/images/numbers/' + (block + 1) + '.png'),
-         position: {
-            left: waypoint.coords.x + '%',
-            top: waypoint.coords.y + '%'
-         }
-      })
+        // UPDATE LOCAL STATE
+        set_local({
+            alignment: (waypoint.align === undefined) ? 'left' : waypoint.align,
+            number: block + 1,
+            position: {
+                left: waypoint.coords.x + '%',
+                top: waypoint.coords.y + '%'
+            }
+        })
 
-   }, [waypoint, block])
+    }, [waypoint, block])
 
-   return (
-      <foreignObject width={ '100%' } height={ '100%' }>
-         <div className={ 'waypoint' } style={ local.position }>
-            <img
-               src={ require('../../interface/images/waypoints/space.png') }
-               id={ waypoint.type }
-               alt={ '' }
-            />
-            <span id={ local.alignment }>
-               <img
-                  src={ local.background }
-                  alt={ '' }
-               />
-            </span>
-         </div>
-      </foreignObject>
-   )
+    return (
+        <foreignObject>
+            <div className={ 'waypoint' } style={ local.position }>
+                <img
+                    src={ blank }
+                    id={ waypoint.type }
+                    alt={ '' }
+                />
+                <span id={ local.alignment }>
+                    <img
+                        src={ blank }
+                        id={ 'wp' + local.number }
+                        alt={ '' }
+                    />
+                </span>
+            </div>
+        </foreignObject>
+    )
 }
-
-export default Waypoint;

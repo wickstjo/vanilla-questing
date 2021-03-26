@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-function Target({ match }) {
+export default ({ match }) => {
    
    // MAKE PARAMS GLOBALLY AVAILABLE
    window.request = match.params;
@@ -9,5 +9,3 @@ function Target({ match }) {
    // REDIRECT TO ROOT
    return <Redirect to={ '/' } />
 }
-
-export default Target;
