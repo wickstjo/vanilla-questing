@@ -1,18 +1,18 @@
 #prompt {
-   background: rgba(0, 0, 0, 0.644);
+   background: rgba(0, 0, 0, 0.219);
    position: absolute;
    left: 0px;
    top: 0px;
    height: 100%;
    width: 100%;
    z-index: 99;
-   transition: opacity 0.1s;
-   opacity: 0;
-   display: none;
+   transition: opacity 0.2s;
+   display: flex;
    justify-content: center;
    align-items: center;
 
    #inner {
+      transition: transform 0.2s;
 
       // PROMPT HEADER
       #header {
@@ -299,4 +299,14 @@
    right: 0;
    position: absolute;
    z-index: -1;   
+}
+
+#prompt.active {
+   opacity: 1;
+   visibility: visible;
+}
+
+#prompt.inactive {
+   opacity: 0;
+   visibility: hidden;
 }

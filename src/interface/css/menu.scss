@@ -1,6 +1,5 @@
 #menu {
-   display: table-row;
-   height: 1px;
+   display: flex;
 
    > .inner {
       background: rgba(0, 0, 0, 0.185);

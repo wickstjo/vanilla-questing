@@ -46,11 +46,22 @@ input {
    }
 }
 
-// TABLE WRAPPER
+// WRAPPER STUFF
 #wrapper {
-   display: table;
+   display: flex;
+   flex-direction: column;
    width: 100%;
    height: 100%;
+   transition: filter 0.2s;
+}
+
+#wrapper.active {
+   filter: none;
+}
+
+#wrapper.inactive {
+   filter: blur(6px) grayscale(70%);
+
 }
 
 // ERROR PAGE

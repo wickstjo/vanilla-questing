@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Context } from "../assets/context";
 import { sleep } from "../funcs/misc";
 import '../interface/css/prompt.scss';
@@ -9,29 +9,30 @@ import References from './prompt/references';
 import Export from './prompt/export';
 import ImportProfiles from './prompt/import_profiles';
 
-export default () => {
+export default ({ set_wrapper }) => {
 
     // GLOBAL STATE
     const { state, dispatch } = useContext(Context);
 
+    // LOCAL STYLE STATE -- DEFAULT TO INACTIVE
+    const [local, set_local] = useState('inactive');
+
     // TOGGLE VISIBILITY BASED ON STATE
     useEffect(() => {
-        if (state.prompt.visible) {
-            document.getElementById('prompt').style.display = 'flex';
-            sleep(100).then(() => {
-                document.getElementById('prompt').style.opacity = 1;
-            })
-        } else {
-            document.getElementById('prompt').style.opacity = 0;
-            sleep(100).then(() => {
-                document.getElementById('prompt').style.display = 'none';
-            })
-        }
+        
+        // WRAPPER & PROMPT STATUSES
+        const wrapper_status = state.prompt.visible ? 'inactive' : 'active'
+        const prompt_status = state.prompt.visible ? 'active' : 'inactive'
+
+        // CHANGE SELECTOR CLASSES
+        set_local(prompt_status)
+        set_wrapper(wrapper_status)
+
     }, [state.prompt.visible]);
 
     return (
-        <div id={ 'prompt' }>
-            <div id={ 'inner' }>
+        <div id={ 'prompt' } className={ local }>
+            <div id={ 'inner' } className={ local }>
                 <Content type={ state.prompt.type } />
                 <span id="close" onClick={() => { dispatch({ type: 'hide-prompt' }) }} />
             </div>
