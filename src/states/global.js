@@ -26,8 +26,6 @@ function reducer(state, action) {
          ...state,
          profiles: action.payload.profiles,
          settings: action.payload.settings,
-         data: action.payload.data,
-         current: action.payload.current,
          lang: action.payload.lang,
          prompt: {
             ...state.prompt,

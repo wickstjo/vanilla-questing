@@ -1,0 +1,42 @@
+path:
+    - page:
+        zone: blasted
+        level: 60.0
+        waypoints:
+        
+        # WAYPOINT
+        - waypoint:
+            coords: [49, 42]
+            header: marshal mcbride
+            type: quest
+            align: top
+            
+            # STARTS
+            starts:
+                - report to goldshire
+        
+        # WAYPOINT
+        - waypoint:
+            coords: [46, 48]
+            header: the dark portal
+            type: objective
+            
+            # SPECIAL
+            special:
+                - Enter Outlands
+        
+    # NEW PAGE
+    - page:
+        zone: hellfire
+        level: 60.0
+        waypoints:
+        
+        # WAYPOINT
+        - waypoint:
+            coords: [46, 48]
+            header: the dark portal
+            type: objective
+            
+            # SPECIAL
+            special:
+                - Enter Outlands

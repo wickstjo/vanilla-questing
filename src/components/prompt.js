@@ -9,7 +9,6 @@ import References from './prompt/references';
 import Export from './prompt/export';
 import ImportProfiles from './prompt/import_profiles';
 
-// PROMPT CONTAINER
 export default () => {
 
     // GLOBAL STATE
@@ -21,12 +20,12 @@ export default () => {
             document.getElementById('prompt').style.display = 'flex';
             sleep(100).then(() => {
                 document.getElementById('prompt').style.opacity = 1;
-            });
+            })
         } else {
             document.getElementById('prompt').style.opacity = 0;
             sleep(100).then(() => {
                 document.getElementById('prompt').style.display = 'none';
-            });
+            })
         }
     }, [state.prompt.visible]);
 
