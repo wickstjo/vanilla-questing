@@ -1,13 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Context } from "../assets/context";
-import { sleep } from "../funcs/misc";
 import '../interface/css/prompt.scss';
 
 import ImportRoute from './prompt/import_route';
 import Create from './prompt/create';
 import References from './prompt/references';
-import Export from './prompt/export';
-import ImportProfiles from './prompt/import_profiles';
+import Contact from './prompt/contact';
+import Settings from './prompt/settings';
 
 export default ({ set_wrapper }) => {
 
@@ -28,7 +27,7 @@ export default ({ set_wrapper }) => {
         set_local(prompt_status)
         set_wrapper(wrapper_status)
 
-    }, [state.prompt.visible]);
+    }, [state.prompt.visible])
 
     return (
         <div id={ 'prompt' } className={ local }>
@@ -64,14 +63,14 @@ function Content({ type }) {
             return <References />
         }
 
-        // EXPORT PROFILES
-        case 'export': {
-            return <Export />
+        // CONTACT
+        case 'contact': {
+            return <Contact />
         }
 
-        // IMPORT ROUTE
-        case 'import-profiles': {
-            return <ImportProfiles />
+        // SETTINGS
+        case 'settings': {
+            return <Settings />
         }
 
         // FALLBACK

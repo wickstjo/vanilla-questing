@@ -48,12 +48,12 @@ export default () => {
     }, [state.settings.language])
 
     return (
-        <div id='panel'>
-            <div id='status'>
+        <div id={ 'panel' }>
+            <div id={ 'status' }>
                 <Level />
                 <Progress />
                 <Hearthstone />
-                <div id='panel-menu' className='split'>
+                <div id={ 'panel-menu' } className={ 'split' }>
                     <Tab
                         label={ headers.obj }
                         func={ toggle }
@@ -66,9 +66,9 @@ export default () => {
                     />
                     <Clipboard />
                 </div>
-                </div>
-            <div id='logs'>
-                <div id='overflow-fix'>
+            </div>
+            <div id={ 'logs' }>
+                <div id={ 'overflow-fix' }>
                     <Objectives visible={ local.objectives } />
                     <Quests visible={ local.quests } />
                 </div>

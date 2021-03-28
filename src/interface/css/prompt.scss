@@ -13,14 +13,15 @@
 
    #inner {
       transition: transform 0.2s;
+      width: 60vh;
 
-      // PROMPT HEADER
       #header {
          text-align: center;
          color: white;
-         font-size: 18px;
+         font-size: 19px;
          text-transform: uppercase;
-         margin-bottom: 5px;
+         margin-bottom: 10px;
+         text-shadow: 1px 1px #242424;
       }
    
       #create, #import, #export {
@@ -151,7 +152,6 @@
 
       // REFERENCES PROMPT
       #references {
-         width: 700px;
          display: flex;
          flex-direction: row;
          text-shadow: 1px 1px #242424;

@@ -29,11 +29,11 @@ export default ({ header, options }) => {
         <div className={ 'option' }>
             <div id={ 'header' }>{ header }</div>
             <div id={ 'language' }>
-            { options.map((item, index) =>
-                <div id={ local === item ? 'current' : null } key={ index } onClick={() => { swap(item) }}>
-                    { item }
-                </div>
-            )}
+                { options.map((item, index) =>
+                    <div id={ local === item ? 'current' : null } key={ index } onClick={() => { swap(item) }}>
+                        { item }
+                    </div>
+                )}
             </div>
         </div>
     )

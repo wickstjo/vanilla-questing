@@ -9,7 +9,6 @@ import EventListener from 'react-event-listener';
 import Map from '../components/map';
 import Panel from '../components/panel';
 
-
 export default ({ match }) => {
 
     // GLOBAL CONTEXT

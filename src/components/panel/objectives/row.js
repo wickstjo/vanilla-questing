@@ -8,73 +8,73 @@ import Single from '../single';
 import Split from '../split';
 
 export default ({ data, type }) => {
-   return data.map((quest, index) =>
-      <Fragment key={ index }>
-         <span className={ type + '-icon' } />
-         <div className={ type + '-row' }>
-            <Name
-               data={ quest }
-               type={ type }
-            />
-         </div>
-      </Fragment>
-   )
+    return data.map((quest, index) =>
+        <Fragment key={ index }>
+            <span className={ type + '-icon' } />
+            <div className={ type + '-row' }>
+                <Name
+                    data={ quest }
+                    type={ type }
+                />
+            </div>
+        </Fragment>
+    )
 }
 
 // QUEST NAME SELECTOR
 function Name({ data, type }) {
 
-   // GLOBAL STATE
-   const { state } = useContext(Context);
+    // GLOBAL STATE
+    const { state } = useContext(Context);
 
-   // NON SPECIALS
-   if (type !== 'special') {
+    // NON SPECIALS
+    if (type !== 'special') {
 
-      // FETCH QUEST ID & NAME, THEN URL & LOCALIZATION PREFIX
-      const { name, id } = extract(data, state);
-      const { url, prefix } = resource(state);
+        // FETCH QUEST ID & NAME, THEN URL & LOCALIZATION PREFIX
+        const { name, id } = extract(data, state);
+        const { url, prefix } = resource(state);
 
-      // DETERMINE CONTAINER
-      switch(typeof data) {
+        // DETERMINE CONTAINER
+        switch(typeof data) {
 
-         // ARRAY
-         case 'object': { return (
-            <Split
-               header={ name }
-               tag={ data[1] }
-               url={ url }
-               id={ id }
-               prefix={ prefix }
-            />
-         )}
-   
-         // STRING
-         default: { return (
-            <Single
-               header={ name }
-               url={ url }
-               id={ id }
-               prefix={ prefix }
-            />
-         )}
-      }
+            // ARRAY
+            case 'object': { return (
+                <Split
+                    header={ name }
+                    tag={ data[1] }
+                    url={ url }
+                    id={ id }
+                    prefix={ prefix }
+                />
+            )}
 
-   // SPECIALS
-   } else {
-      switch(typeof data) {
+            // STRING
+            default: { return (
+                <Single
+                    header={ name }
+                    url={ url }
+                    id={ id }
+                    prefix={ prefix }
+                />
+            )}
+        }
 
-         // ARRAY
-         case 'object': { return (
-            <Single
-               header={ data[0] }
-               url={ data[1] }
-            />
-         )}
+    // SPECIALS
+    } else {
+        switch(typeof data) {
 
-         // STRING
-         default: {
-            return <div>{ data }</div>
-         }
-      }
-   }
+            // ARRAY
+            case 'object': { return (
+                <Single
+                    header={ data[0] }
+                    url={ data[1] }
+                />
+            )}
+
+            // STRING
+            default: {
+                return <div>{ data }</div>
+            }
+        }
+    }
 }

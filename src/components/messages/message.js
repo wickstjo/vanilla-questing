@@ -1,47 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import { sleep } from "../../funcs/misc";
 
-function Message({ item }) {
+export default ({ item }) => {
 
-   // LOCAL STATE
-   const [local, set_local] = useState({})
+    // LOCAL STATE
+    const [local, set_local] = useState({})
 
-   // FADE IN AND OUT
-   useEffect(() => {
+    // FADE IN AND OUT
+    useEffect(() => {
 
-      // GRADUALLY TURN ON OPACITY
-      set_local({
-         ...local,
-         opacity: '1'
-      })
-
-      // WAIT 3 SECONDS
-      sleep(3000).then(() => {
-
-         // GRADUALLY TURN OFF OPACITY
-         set_local({
+        // GRADUALLY TURN ON OPACITY
+        set_local({
             ...local,
-            opacity: '0'
-         })
+            opacity: '1'
+        })
 
-         // WAIT FOR THE FADE TO END
-         sleep(200).then(() => {
+        // WAIT 3 SECONDS
+        sleep(3000).then(() => {
 
-            // SHUT THE COMPONENT DOWN PROPERLY
+            // GRADUALLY TURN OFF OPACITY
             set_local({
-               ...local,
-               display: 'none'
+                ...local,
+                opacity: '0'
             })
 
-         })
-      })
-   }, [])
+            // WAIT FOR THE FADE TO END
+            sleep(200).then(() => {
 
-   return (
-      <div id={ 'message' } className={ item.type } style={ local }>
-         { item.text }
-      </div>
-   )
+                // SHUT THE COMPONENT DOWN PROPERLY
+                set_local({
+                    ...local,
+                    display: 'none'
+                })
+
+            })
+        })
+    }, [])
+
+    return (
+        <div id={ 'message' } className={ item.type } style={ local }>
+            { item.text }
+        </div>
+    )
 }
-
-export default Message;

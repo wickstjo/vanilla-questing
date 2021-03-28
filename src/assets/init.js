@@ -3,7 +3,7 @@ import { Context } from "./context";
 import { check as check_storage } from '../funcs/storage';
 import { check as check_settings } from '../funcs/settings';
 
-// LOCALIZED NAMES
+// LOCALIZED QUESTS
 import chinese from '../langs/cn.json';
 import french from '../langs/fra.json';
 import german from '../langs/ger.json';

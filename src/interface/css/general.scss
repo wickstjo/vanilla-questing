@@ -1,81 +1,80 @@
 @font-face {
-   font-family: 'Open Sans';
-   src: url('../fonts/main.woff');
+    font-family: 'Open Sans';
+    src: url('../fonts/main.woff');
 }
 
 * {
-   margin: 0px;
-   padding: 0px;
-   -webkit-box-sizing: border-box;
-   -moz-box-sizing: border-box;
-   box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-   background-color: rgb(56, 56, 56);
-   background-image: url('../images/bg.png');
-   font: 13px 'Open Sans', verdana;
-   color: #505050;
+    background-color: rgb(56, 56, 56);
+    background-image: url('../images/bg.png');
+    font: 13px 'Open Sans', verdana;
+    color: #505050;
 }
 
 a:link, a:visited, a:hover {
-	color: inherit;
-   transition: color 0.3s;
-   text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+    text-decoration: none;
 }
 
 input {
-   font: 13px 'Open Sans', verdana;
-   outline: none;
+    font: 13px 'Open Sans', verdana;
+    outline: none;
 }
 
 // SPLIT TABLE
 .split {
-   display: table;
-   width: 100%;
+    display: table;
+    width: 100%;
 
-   div {
-      display: table-cell;
-      width: auto;
-      text-align: left;
-      vertical-align: top;
-   }
+    div {
+        display: table-cell;
+        width: auto;
+        text-align: left;
+        vertical-align: top;
+    }
 
-   div:nth-child(2) {
-      text-align: right;
-   }
+    div:nth-child(2) {
+        text-align: right;
+    }
 }
 
 // WRAPPER STUFF
 #wrapper {
-   display: flex;
-   flex-direction: column;
-   width: 100%;
-   height: 100%;
-   transition: filter 0.2s;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    transition: filter 0.2s;
 }
 
 #wrapper.active {
-   filter: none;
+    filter: none;
 }
 
 #wrapper.inactive {
-   filter: blur(6px) grayscale(70%);
-
+    filter: blur(5px) grayscale(70%);
 }
 
 // ERROR PAGE
 #error {
-   display: flex;
-   height: 100%;
-   justify-content: center;
-   align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 
-   #inner {
-      background: rgba(0, 0, 0, 0.219);
-      padding: 8px 12px;
-      color: white;
-      font-size: 18px;
-      text-shadow: 1px 1px #242424;
-   }
+    #inner {
+        background: rgba(0, 0, 0, 0.219);
+        padding: 8px 12px;
+        color: white;
+        font-size: 18px;
+        text-shadow: 1px 1px #242424;
+    }
 }
