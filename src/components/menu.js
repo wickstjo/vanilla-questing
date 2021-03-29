@@ -3,8 +3,6 @@ import { Context } from '../assets/context';
 import '../interface/css/menu.scss';
 
 import Main from './menu/main';
-
-import Load from './menu/load';
 import Create from './menu/create';
 
 export default () => {
@@ -24,7 +22,11 @@ export default () => {
         <div id="menu">
             <div className="inner">
                 <div>
-                    <Load />
+                    <Main
+                        header={ 'Randomize' }
+                        type={ 'internal' }
+                        resource={ '/classic-questing' }
+                    />
                     <Create />
                     <Main
                         header={ 'Import Route' }
@@ -50,7 +52,7 @@ export default () => {
                     />
                     <Main
                         header={ 'GitHub' }
-                        type={ 'link' }
+                        type={ 'external' }
                         resource={ 'https://github.com/wickstjo/vanilla-questing' }
                     />
                 </div>

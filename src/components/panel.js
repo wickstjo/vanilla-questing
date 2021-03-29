@@ -6,7 +6,6 @@ import Level from './panel/status/level';
 import Progress from './panel/status/progress';
 import Hearthstone from './panel/status/hearthstone';
 import Tab from './panel/tab';
-import Clipboard from './panel/clipboard';
 import Objectives from './panel/objectives/objectives';
 import Quests from './panel/questlog/quests';
 
@@ -64,7 +63,6 @@ export default () => {
                         func={ toggle }
                         selected={ local.quests }
                     />
-                    <Clipboard />
                 </div>
             </div>
             <div id={ 'logs' }>

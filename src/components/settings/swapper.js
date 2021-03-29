@@ -19,7 +19,7 @@ export default ({ header, first, second }) => {
 
     return (
         <div className={ 'option' } onClick={ swap }>
-            <div id={ 'header' }>{ header }</div>
+            <div id={ 'title' }>{ header }</div>
             <div id={ 'swapper' }>
                 <div id={ state.settings[header] === first ? 'current' : null }>{ first }</div>
                 <div id={ state.settings[header] === second ? 'current' : null }>{ second }</div>

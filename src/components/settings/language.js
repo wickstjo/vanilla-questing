@@ -27,7 +27,7 @@ export default ({ header, options }) => {
 
     return (
         <div className={ 'option' }>
-            <div id={ 'header' }>{ header }</div>
+            <div id={ 'title' }>{ header }</div>
             <div id={ 'language' }>
                 { options.map((item, index) =>
                     <div id={ local === item ? 'current' : null } key={ index } onClick={() => { swap(item) }}>

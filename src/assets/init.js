@@ -1,6 +1,5 @@
 import { useContext, useEffect } from 'react';
 import { Context } from "./context";
-import { check as check_storage } from '../funcs/storage';
 import { check as check_settings } from '../funcs/settings';
 
 // LOCALIZED QUESTS
@@ -23,14 +22,12 @@ export default () => {
     useEffect(() => {
 
         // CHECK LOCALSTORAGE HEALTH
-        const profiles = check_storage();
         const settings = check_settings();
 
         // SET GLOBAL STATE & STOP LOADING
         dispatch({
             type: 'init',
             payload: {
-                profiles: profiles,
                 settings: settings,
                 lang: {
                     cn: chinese,

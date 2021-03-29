@@ -3,6 +3,7 @@ import EventListener from 'react-event-listener';
 
 import { Context } from "../../assets/context";
 import { specific } from '../../funcs/build';
+import { update_url } from '../../funcs/browsing';
 
 export default () => {
 
@@ -11,44 +12,21 @@ export default () => {
 
     // LOCAL STATE
     const [local, set_local] = useState({
-        name: '',
-        button: 'bad',
-        errors: []
+        level: '',
+        button: 'bad'
     })
 
-    // AUDIT NAME -- FORCE LOWERCASE
+    // CHECK IF THE LEVEL REQUEST ABIDES BY THE RULESET
     const audit = (event) => {
-        const input = event.target.value.toLowerCase();
-
-        // ERRORS ARRAY
-        let errors = [];
-
-        // SOMETHING IS TYPED
-        if (input.length !== 0) {
-
-        // CHECK LENGTH
-        if (input.length >= 3 && input.length <= 12) {
-
-        // CHECK EXISTENCE
-        if (!state.profiles.has(input)) {
-
-        // IF NO ERRORS ARE FOUND, SAVE NAME TO STATE & CHANGE BUTTON COLOR
-        set_local({
-            name: input,
-            button: 'good',
-            errors: []
-        })
-
-        } else { errors.push('Name already exists!') }
-        } else { errors.push('3-12 characters!') }
-        } else { errors.push('Profile must have a name!') }
-
-        // IF ERRORS WERE FOUND, SHOW THEM & TURN BUTTON RED
-        if (errors.length !== 0) {
+        if (event.target.value.length !== 0 && event.target.value >= 0 && event.target.value <= 70) {
             set_local({
-                name: input,
+                level: event.target.value,
+                button: 'good',
+            })
+        } else {
+            set_local({
+                level: event.target.value,
                 button: 'bad',
-                errors: errors
             })
         }
     }
@@ -57,34 +35,44 @@ export default () => {
     const submit = () => {
         if (local.button === 'good') {
 
-            // GENERATE DETAILS
-            const details = {
+            // LOAD BUILD
+            const build = specific({
                 race: state.request,
                 block: 0
-            }
-
-            // ADD PROFILE TO HASHMAP & LOAD THE BUILD
-            state.profiles.set(local.name, details);
-            const build = specific(details);
-
-            // ADD PROFILE
-            dispatch({
-                type: 'add-profile',
-                payload: {
-                    data: build.data,
-                    current: build.current,
-                    profile: local.name,
-                    profiles: state.profiles,
-                    msg: 'profile "' + local.name + '" created'
-                }
             })
 
-            // RESET LOCAL STATE
+            // FIND THE REQUESTED LEVEL
+            for (let index = 0; index < build.data.route.length; index++) {
+                const block = build.data.route[index];
+
+                // FIND THE BLOCK WITH THE CLOSEST EXPERIENCE
+                if (block.experience >= local.level) {
+                    
+                    // SET STARTING POINT IN BUILD
+                    build.current = index;
+
+                    // BREAK THE LOOP
+                    break;
+                }
+            }
+
+            // SET IT IN STATE
+            dispatch({
+                type: 'load-build',
+                payload: build
+            })
+
+            // RESET LOCAL INPUT
             set_local({
                 name: '',
                 button: 'bad',
-                errors: []
             })
+
+            // UPDATE URL
+            update_url(state, build.data.race, build.current)
+
+            // HIDE PROMPT
+            dispatch({ type: 'hide-prompt' })
         }
     }
 
@@ -97,39 +85,27 @@ export default () => {
 
     return (
         <Fragment>
-            <div id={ 'header' }>Create Profile</div>
+            <div id={ 'header' }>Starting Level</div>
             <div id={ 'create' }>
                 <EventListener
                     target={ 'window' }
                     onKeyDown={ key_listener }
                 />
                 <input
-                    autoFocus
                     id={ 'content' }
                     type={ 'text' }
-                    placeholder={ 'Enter Profile Name' }
+                    placeholder={ '0-70' }
                     onChange={ audit }
                     value={ local.name }
+                    autoFocus
                 />
                 <input
                     id={ local.button }
                     type={ 'submit' }
-                    value={ 'Create' }
+                    value={ 'Build' }
                     onClick={ submit }
                 />
             </div>
-            <div id={ 'errors' }>
-                <Errors data={ local.errors } />
-            </div>
         </Fragment>
     )
-}
-
-// ERROR FRAME CONTENT
-function Errors({ data }) {
-    if (data.length !== 0) {
-        return <span id={ 'row' }>{ data[0] }</span>
-    } else {
-        return null;
-    }
 }

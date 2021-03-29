@@ -52,7 +52,7 @@ export default ({ header, name, bind }) => {
     return (
         <div>
             <div className={ 'keybind' } onClick={ update }>
-                <div id={ 'header' }>{ header }</div>
+                <div id={ 'title' }>{ header }</div>
                 <div id={ local.listener ? 'current' : 'bind' }>{ local.key }</div>
             </div>
             { local.listener ? (

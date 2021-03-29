@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default ({ children, header, type, resource }) => {
 
@@ -64,8 +65,15 @@ export default ({ children, header, type, resource }) => {
 function Single({ header, type, resource }) {
     switch(type) {
 
+        // INTERNAL LINK
+        case 'internal': { return (
+            <Link to={ resource }>
+                <li>{ header }</li>
+            </Link>
+        )}
+
         // EXTERNAL LINK
-        case 'link': { return (
+        case 'external': { return (
             <a href={ resource } target={ '_blank' } rel={ 'noopener noreferrer' }>
                 <li>{ header }</li>
             </a>

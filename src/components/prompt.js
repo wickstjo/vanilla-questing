@@ -33,8 +33,11 @@ export default ({ set_wrapper }) => {
         <div id={ 'prompt' } className={ local }>
             <div id={ 'inner' } className={ local }>
                 <Content type={ state.prompt.type } />
-                <span id="close" onClick={() => { dispatch({ type: 'hide-prompt' }) }} />
             </div>
+            <span
+                id="close"
+                onClick={() => { dispatch({ type: 'hide-prompt' }) }}
+            />
         </div>
     )
 }

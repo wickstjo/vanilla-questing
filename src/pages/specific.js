@@ -9,7 +9,7 @@ import EventListener from 'react-event-listener';
 import Map from '../components/map';
 import Panel from '../components/panel';
 
-export default ({ match }) => {
+export default ({ match, history }) => {
 
     // GLOBAL CONTEXT
     const { state, dispatch } = useContext(Context);
@@ -18,13 +18,20 @@ export default ({ match }) => {
     useEffect(() => {
 
         // FETCH THE BUILD
-        const blob = specific(match.params)
+        const build = specific(match.params)
 
         // SET IN STATE
         dispatch({
-            type: 'load-request',
-            payload: blob
+            type: 'load-build',
+            payload: build
         })
+
+        // MAKE HISTORY API AVAILABLE THROUGH GLOBAL STATE
+        dispatch({
+            type: 'url',
+            payload: history
+        })
+
     }, [])
 
     // KEYBOARD EVENT LISTENER

@@ -15,8 +15,8 @@ export default () => {
     if (state.settings !== null) { return (
 
         <Switch>
-            <Route exact path={ '/vanilla-questing/' } component={ Random } />
-            <Route path={ '/vanilla-questing/:race/:block' } component={ Specific } />
+            <Route exact path={ '/classic-questing/' } component={ Random } />
+            <Route path={ '/classic-questing/:race/:block' } component={ Specific } />
             <Route component={ Error } />
         </Switch>
 

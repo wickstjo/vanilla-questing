@@ -41,7 +41,7 @@ export default () => {
     if (local.race !== null) {
 
         return (
-            <Redirect to={ '/vanilla-questing/' + local.race + '/' + local.block } />
+            <Redirect to={ '/classic-questing/' + local.race + '/' + local.block } />
         )
 
     // OTHERWISE, RENDER NOTHING

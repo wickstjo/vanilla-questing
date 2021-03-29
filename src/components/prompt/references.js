@@ -17,10 +17,10 @@ export default () => {
         travel: 'Travel Point',
 
         return: 'Return quest',
-        complete: 'Pick up & return quest',
-        pickup: 'Pick up quest',
+        complete: 'Obtain & return quest',
+        pickup: 'Obtain quest',
         objective: 'Complete objective',
-        note: 'Authors note',
+        note: 'Special note',
 
         chain: 'Part # of Chain',
         elite: 'Elite Quest',
@@ -74,13 +74,6 @@ export default () => {
 function Color({ data }) { return (
     <div className='row' id={ data[1] }>
         <span className={ data[1] + '-icon' } />
-        { data[0] }
-    </div>
-)}
-
-// MARKER ROW
-function Marker({ data }) { return (
-    <div className='row' id='brown' style={{ backgroundImage: `url(${ require('../../interface/images/waypoints/' + data[1] + '.png') })` }}>
         { data[0] }
     </div>
 )}

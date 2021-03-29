@@ -1,312 +1,411 @@
 #prompt {
-   background: rgba(0, 0, 0, 0.219);
-   position: absolute;
-   left: 0px;
-   top: 0px;
-   height: 100%;
-   width: 100%;
-   z-index: 99;
-   transition: opacity 0.2s;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+    background: rgba(0, 0, 0, 0.219);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    transition: opacity 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-   #inner {
-      transition: transform 0.2s;
-      width: 60vh;
+    #inner {
+        transition: transform 0.2s;
+        width: 60vh;
 
-      #header {
-         text-align: center;
-         color: white;
-         font-size: 19px;
-         text-transform: uppercase;
-         margin-bottom: 10px;
-         text-shadow: 1px 1px #242424;
-      }
-   
-      #create, #import, #export {
-         background: rgba(0, 0, 0, 0.473);
-         min-width: 300px;
-         padding: 2px;
-      }
-
-      // CREATE PROMPT
-      #create {
-         display: flex;
-
-         // TEXT
-         #content {
-            background: rgba(255, 255, 255, 0.904);
-            border: 2px solid white;
-            width: 200px;
-            padding: 3px 5px;
-            color: #333333;
-            flex: 1;
-         }
-         
-         // BUTTONS
-         #good, #bad {
-            background: rgba(87, 194, 65, 0.897);
-            border: 2px solid rgba(87, 194, 65, 0.911);
-            width: auto;
-            margin-left: 2px;
+        #header {
+            text-align: center;
             color: white;
-            transition: background 0.3s;
-            padding: 3px 5px;
-         }
-         
-         #good {
-            cursor: pointer;
-         }
-         
-         #bad {
-            background: rgba(194, 65, 65, 0.897);
-            border: 2px solid rgba(199, 70, 70, 0.897);
-         }
-      }
+            font-size: 19px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px #242424;
+        }
 
-      // CREATE PROFILE ERROR FRAME
-      #errors {
-         min-height: 50px;
-         display: flex;
-         justify-content: center;
-         align-items: center;
+        #create, #import, #export {
+            background: rgba(0, 0, 0, 0.473);
+            min-width: 300px;
+            padding: 2px;
+        }
 
-         #row {
-            background: rgba(194, 65, 65, 0.897);
-            border: 2px solid rgba(199, 70, 70, 0.897);
-            color: white;
-            padding: 4px 6px;
-            border-radius: 4px;
-         }
-      }
+        // SETTINGS PROMPT
+        #settings {
+            background: rgba(0, 0, 0, 0.534);
+            padding: 2px;
 
-      // IMPORT PROMPT
-      #import {
+            .option, .keybind { padding-bottom: 2px; }
+            .option:last-child { padding-bottom: 0px; }
 
-         #factions {
+            .option #swapper, .keybind div {
+                width: 171px;
+            }
+
+            .option {
+                background: rgba(0, 0, 0, 0.158);
+                display: flex;
+                color: white;
+                text-transform: capitalize;
+                cursor: pointer;
+
+                #title {
+                    flex: 1;
+                    padding: 6px 7px;
+                }
+
+                #swapper, #language {
+                    display: flex;
+                    text-shadow: 1px 1px #242424;
+
+                    div {
+                        background: rgba(47, 128, 175, 0.452);
+                        border-bottom: 2px solid rgba(47, 128, 175, 0.486);
+                        background-image: url('../images/bg.png');
+                        flex: 1;
+                        text-align: center;
+                        padding: 6px 7px;
+                        transition: 0.3s;
+                        margin-left: 2px;
+                    }
+
+                    div:first-child {
+                        margin: 0px;
+                    }
+
+                    #current {
+                        background: rgba(60, 199, 60, 0.466);
+                        border-bottom: 2px solid rgba(60, 199, 60, 0.336);
+                        background-image: url('../images/bg.png');
+                        text-decoration: underline;
+                    }
+                }
+
+                #language {
+                    width: 300px;
+                    text-transform: uppercase;
+                }
+            }
+
+            .keybind {
+                background: rgba(0, 0, 0, 0.158);
+                display: flex;
+                color: white;
+                text-transform: capitalize;
+                cursor: pointer;
+
+                div {
+                    padding: 6px 8px;
+                    transition: 0.3s;
+                }
+
+                #title {
+                    flex: 1;
+                }
+
+                #bind, #current {
+                    background: rgba(47, 128, 175, 0.452);
+                    border-bottom: 2px solid rgba(47, 128, 175, 0.486);
+                    background-image: url('../images/bg.png');
+                    text-align: center;
+                }
+
+                #current {
+                    background: rgba(60, 199, 60, 0.411);
+                    border-bottom: 2px solid rgba(60, 199, 60, 0.336);
+                    background-image: url('../images/bg.png');
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        // CREATE PROMPT
+        #create {
+            width: 300px;
+            margin: auto;
             display: flex;
-            width: 100%;
 
-            // FACTION TABS
-            .tab {
-               background: rgba(189, 51, 51, 0.815);
-               border-bottom: 2px solid rgba(187, 58, 58, 0.644);
-               flex: 1;
-               padding: 5px;
-               text-align: center;
-               margin-right: 2px;
-               text-shadow: 1px 1px #24242480;
-               text-transform: uppercase;
-               transition: background 0.2s;
-               color: white;
-               cursor: pointer;
+            #content {
+                background: rgba(255, 255, 255, 0.904);
+                border: 0px solid black;
+                border-bottom: 2px solid white;
+                width: 200px;
+                padding: 6px 9px;
+                color: #333333;
+                flex: 1;
             }
 
-            .tab:last-child {
-               margin-right: 0px;
+            #good, #bad {
+                background: rgba(60, 199, 60, 0.466);
+                border: 0px solid black;
+                border-bottom: 2px solid rgba(60, 199, 60, 0.336);
+                width: auto;
+                margin-left: 2px;
+                color: white;
+                transition: 0.2s;
+                padding: 6px 9px;
             }
 
-            // SELECTED TAB
-            #selected {
-               background: rgba(51, 150, 51, 0.774);
-               border-bottom: 2px solid rgba(53, 151, 53, 0.705);
-               cursor: default;
+            #good {
+                cursor: pointer;
             }
-         }
 
-         // FILE INPUT FIELD
-         #container {
-            background: rgba(0, 0, 0, 0.664);
-            border: 1px dashed rgba(255, 255, 255, 0.301);
-            margin-top: 2px;
-            height: 80px;
-            position: relative;
+            #bad {
+                background: rgba(194, 65, 65, 0.822);
+                border-bottom: 2px solid rgba(199, 70, 70, 0.897);
+            }
+        }
+
+        // CREATE PROFILE ERROR FRAME
+        #errors {
+            min-height: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #CECECE;
-            transition: background 0.2s;
 
-            #route {
-               background: red;
-               width: 100%;
-               height: 100%;
-               opacity: 0;
-               z-index: 2;
-               cursor: pointer;
+            #row {
+                background: rgba(194, 65, 65, 0.897);
+                border: 2px solid rgba(199, 70, 70, 0.897);
+                color: white;
+                padding: 4px 6px;
+                border-radius: 4px;
+            }
+        }
+
+        // IMPORT PROMPT
+        #import {
+            max-width: 300px;
+            margin: auto;
+
+            #factions {
+                background-image: url('../images/bg.png');
+
+                display: flex;
+                width: 100%;
+
+                .tab {
+                    background: rgba(189, 51, 51, 0.733);
+                    border-bottom: 2px solid rgba(187, 58, 58, 0.644);
+                    flex: 1;
+                    padding: 5px;
+                    text-align: center;
+                    margin-right: 2px;
+                    text-shadow: 1px 1px #24242480;
+                    transition: background 0.2s;
+                    color: white;
+                    cursor: pointer;
+                }
+
+                .tab:last-child {
+                    margin-right: 0px;
+                }
+
+                #selected {
+                    background: rgba(51, 150, 51, 0.705);
+                    border-bottom: 2px solid rgba(53, 151, 53, 0.705);
+                    cursor: default;
+                }
             }
 
-            #label {
-               position: absolute;
-               z-index: 1;
-               font-size: 15px;
-               text-transform: uppercase;
-            }
-         }
+            // FILE INPUT FIELD
+            #container {
+                background: rgba(0, 0, 0, 0.568);
+                border: 1px dashed rgba(255, 255, 255, 0.137);
+                margin-top: 2px;
+                height: 80px;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #CECECE;
+                transition: 0.2s;
 
-         #container:hover {
-            color: white;
-         }
-      }
+                #route {
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    z-index: 2;
+                    cursor: pointer;
+                }
 
-      // REFERENCES PROMPT
-      #references {
-         display: flex;
-         flex-direction: row;
-         text-shadow: 1px 1px #242424;
-         text-transform: capitalize;
-
-         // EACH BOX
-         .container {
-            background: rgba(0, 0, 0, 0.473);
-            flex: 1;
-            margin-right: 4px;
-            height: 100%;
-            padding: 2px;
-            padding-bottom: 1px;
-
-            #yellow, #green, #red, #blue, #brown, #purple {
-               position: relative;
-               background-color: rgba(67, 110, 68, 0.973);
-               padding: 6px 8px;
-               padding-left: 35px;
-               color: white;
-               margin-bottom: 1px;
+                #label {
+                    position: absolute;
+                    z-index: 1;
+                    font-size: 15px;
+                    text-transform: uppercase;
+                }
             }
 
-            #brown { padding-left: 6px; }
+            #container:hover {
+                color: white;
+            }
+        }
 
-            #yellow { background-color: rgba(133, 134, 51, 0.973); }
-            #red { background-color: rgba(129, 66, 66, 0.973); }
-            #blue { background-color: #455475f6; }
-            #purple { background-color: rgba(139, 77, 163, 0.76); }
+        // REFERENCES PROMPT
+        #references {
+            display: flex;
+            flex-direction: row;
+            text-shadow: 1px 1px #242424;
+            text-transform: capitalize;
 
-            // CALIBRATE MAP MARKER BACKGROUNDS
-            #brown {
-               position: relative;
-               background: rgba(148, 113, 76, 0.911);
-               background-repeat: no-repeat;
-               background-position: center right 10px;
+            // EACH BOX
+            .container {
+                background: rgba(0, 0, 0, 0.473);
+                flex: 1;
+                margin-right: 4px;
+                height: 100%;
+                padding: 2px;
+                padding-bottom: 1px;
+
+                #yellow, #green, #red, #blue, #brown, #purple {
+                    position: relative;
+                    background-color: rgba(67, 110, 68, 0.973);
+                    padding: 6px 8px;
+                    padding-left: 35px;
+                    color: white;
+                    margin-bottom: 1px;
+                }
+
+                #brown { padding-left: 6px; }
+                #yellow { background-color: rgba(133, 134, 51, 0.973); }
+                #red { background-color: rgba(129, 66, 66, 0.973); }
+                #blue { background-color: #455475f6; }
+                #purple { background-color: rgba(139, 77, 163, 0.76); }
+
+                #brown {
+                    position: relative;
+                    background: rgba(148, 113, 76, 0.911);
+                    background-repeat: no-repeat;
+                    background-position: center right 10px;
+                }
+
+                .yellow-icon, .green-icon, .purple-icon, .red-icon, .blue-icon {
+                    background-color: rgba(0, 0, 0, 0.199);
+                    background-image: url('../images/icons/ends.png');
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    position: absolute;
+                    left: 1px;
+                    top: 0px;
+                    height: 28px;
+                    width: 28px;
+                    margin-top: 1px;
+                }
+
+                .yellow-icon { background-image: url('../images/icons/starts.png'); }
+                .red-icon { background-image: url('../images/icons/objectives.png'); }
+                .blue-icon { background-image: url('../images/icons/special.png'); }
             }
 
-            .yellow-icon, .green-icon, .purple-icon, .red-icon, .blue-icon {
-               background-color: rgba(0, 0, 0, 0.199);
-               background-image: url('../images/icons/ends.png');
-               background-repeat: no-repeat;
-               background-position: center center;
-               position: absolute;
-               left: 1px;
-               top: 0px;
-               height: 28px;
-               width: 28px;
-               margin-top: 1px;
+            .container:last-child {
+                margin-right: 0px;
+            }
+        }
+
+        // IMPORT ROUTE PROMPT
+        #import {
+
+            textarea {
+                width: 100%;
+                resize: none;
+                height: 300px;
+                border: 0px solid black;
+                outline: none;
+                padding: 5px;
             }
 
-            .yellow-icon { background-image: url('../images/icons/starts.png'); }
-            .red-icon { background-image: url('../images/icons/objectives.png'); }
-            .blue-icon { background-image: url('../images/icons/special.png'); }
-         }
-         
-         .container:last-child {
-            margin-right: 0px;
-         }
-      }
+            // BUTTONS
+            #good, #bad {
+                background: rgba(87, 194, 65, 0.897);
+                border: 2px solid rgba(87, 194, 65, 0.911);
+                width: auto;
+                margin-top: 2px;
+                color: white;
+                transition: 0.3s;
+                padding: 3px 5px;
+                width: 100%;
+            }
 
-      #export, #import {
-         textarea {
-            width: 100%;
-            resize: none;
-            height: 300px;
-            border: 0px solid black;
-            outline: none;
-            padding: 5px;
-         }
+            #good {
+                cursor: pointer;
+            }
 
-         // BUTTONS
-         #good, #bad {
-            background: rgba(87, 194, 65, 0.897);
-            border: 2px solid rgba(87, 194, 65, 0.911);
-            width: auto;
-            margin-top: 2px;
-            color: white;
-            transition: 0.3s;
-            padding: 3px 5px;
-            width: 100%;
-         }
-         
-         #good {
-            cursor: pointer;
-         }
-         
-         #bad {
-            background: rgba(194, 65, 65, 0.897);
-            border: 2px solid rgba(199, 70, 70, 0.897);
-         }
-      }
+            #bad {
+                background: rgba(194, 65, 65, 0.897);
+                border: 2px solid rgba(199, 70, 70, 0.897);
+            }
+        }
 
-      // LOADING SCREEN -- https://loading.io/css/
-      .lds-dual-ring {
-         display: block;
-         width: 80px;
-         height: 80px;
-         margin: auto;
-      }
+        // LOADING SCREEN -- https://loading.io/css/
+        .lds-dual-ring {
+            display: block;
+            width: 80px;
+            height: 80px;
+            margin: auto;
+        }
 
-      .lds-dual-ring:after {
-         content: " ";
-         display: block;
-         width: 80px;
-         height: 80px;
-         margin: 1px;
-         border-radius: 50%;
-         border: 6px solid #fff;
-         border-color: #fff transparent #fff transparent;
-         animation: lds-dual-ring 1.2s linear infinite;
-      }
+        .lds-dual-ring:after {
+            content: " ";
+            display: block;
+            width: 80px;
+            height: 80px;
+            margin: 1px;
+            border-radius: 50%;
+            border: 6px solid #fff;
+            border-color: #fff transparent #fff transparent;
+            animation: lds-dual-ring 1.2s linear infinite;
+        }
 
-      @keyframes lds-dual-ring {
-         0% { transform: rotate(0deg); }
-         100% { transform: rotate(360deg); }
-      }
-   }
+        @keyframes lds-dual-ring {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    }
 
-   // CLOSE PROMPT CROSS
-   #close {
-      background: url('../images/close.png') center center no-repeat;
-      position: absolute;
-      bottom: 0px;
-      right: 0px;
-      height: 80px;
-      width: 80px;
-      opacity: 0.6;
-      transition: 0.3s;
-   }
+    #inner.active {
+        transform: translate(0px, 0px)
+    }
 
-   #close:hover {
-      cursor: pointer;
-      opacity: 1;
-   }
+    #inner.inactive {
+        transform: translate(0px, 50px)
+    }
+
+    // CLOSE PROMPT CROSS
+    #close {
+        background: url('../images/close.png') center center no-repeat;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        height: 80px;
+        width: 80px;
+        opacity: 0.6;
+        transition: 0.3s;
+    }
+
+    #close:hover {
+        cursor: pointer;
+        opacity: 1;
+    }
 }
 
 #prompt::after {
-   content: "";
-   background: url('../images/bg.png');
-   opacity: 0.6;
-   top: 0;
-   left: 0;
-   bottom: 0;
-   right: 0;
-   position: absolute;
-   z-index: -1;   
+    content: "";
+    background: url('../images/bg.png');
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
 }
 
 #prompt.active {
-   opacity: 1;
-   visibility: visible;
+    opacity: 1;
+    visibility: visible;
 }
 
 #prompt.inactive {
-   opacity: 0;
-   visibility: hidden;
+    opacity: 0;
+    visibility: hidden;
 }
