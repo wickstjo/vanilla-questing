@@ -1,12 +1,13 @@
 import React, { useState, useContext, Fragment } from 'react';
 import { Context } from "../../assets/context";
 import { custom } from '../../funcs/build';
+import { update_url } from '../../funcs/browsing';
 import axios from 'axios';
 
 export default () => {
 
     // GLOBAL CONTEXT
-    const { dispatch } = useContext(Context);
+    const { state, dispatch } = useContext(Context);
 
     // PICKED FACTION STATE
     const [local, set_local] = useState({
@@ -52,29 +53,21 @@ export default () => {
 
                     // IMPORT THE ROUTE
                     dispatch({
-                        type: 'import-route',
+                        type: 'load-build',
                         payload: {
                             data: build.data,
-                            current: build.current,
-                            msg: 'ROUTE IMPORTED SUCCESSFULLY'
+                            current: build.current
                         }
                     })
 
-                // OTHERWISE, LOADING NOTHING & SHOW ERROR MESSAGE
-                } else {
+                    // CHANGE URL
+                    update_url(state, build.data.race, build.current)
 
-                    // HIDE PROMPT
-                    dispatch({ type: 'hide-prompt' });
+                // OTHERWISE, PRINT ERROR
+                } else { console.log('ROUTE FILE CONTAINS ERRORS') }
 
-                    // SHOW MESSAGE
-                    dispatch({
-                        type: 'add-message',
-                        payload: {
-                            msg: 'YOUR FILE CONTAINS ERRORS',
-                            type: 'bad'
-                        }
-                    })
-                }
+                // HIDE PROMPT
+                dispatch({ type: 'hide-prompt' })
 
                 // IRREGARDLESS, CLEAR THE INPUT FIELD
                 event.target.value = null;

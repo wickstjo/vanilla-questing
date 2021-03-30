@@ -894,6 +894,7 @@
          "waypoints": [
             {
                "coords": { "x": 44, "y": 36 },
+               "align": "top",
                "header": "asterion",
                "ends": [["bashal'aran", "p2"]],
                "starts": [["bashal'aran", "p3"]],
@@ -901,7 +902,7 @@
             },
             {
                "coords": { "x": 48, "y": 37 },
-               "align": "right",
+               "align": "top",
                "header": "bashal'aran",
                "objectives": [["bashal'aran", "p3"]],
                "type": "objective"

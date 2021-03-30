@@ -10,19 +10,18 @@ const values = {
     // REACT DOM URL API
     url: null,
 
-    // MISC
+    // SETTINGS RELATED
     settings: null,
+    lang: {},
+
+    // ROUTE REQUEST
     request: null,
-    loaded: null,
 
     // PROMPT RELATED
     prompt: {
         visible: false,
         type: null
-    },
-
-    // LANGUAGE
-    lang: {}
+    }
 }
 
 // REDUCER
@@ -33,11 +32,7 @@ function reducer(state, { type, payload }) {
         case 'init': { return {
             ...state,
             settings: payload.settings,
-            lang: payload.lang,
-            prompt: {
-                ...state.prompt,
-                visible: false
-            }
+            lang: payload.lang
         }}
 
         // LOAD BUILD REQUEST
@@ -51,24 +46,6 @@ function reducer(state, { type, payload }) {
         case 'url': { return {
             ...state,
             url: payload
-        }}
-
-        // IMPORT ROUTE
-        case 'import-route': { return {
-            ...state,
-            data: payload.data,
-            current: payload.current,
-            loaded: null,
-            prompt: {
-                ...state.prompt,
-                visible: false
-            },
-            messages: [
-                ...state.messages, {
-                    text: payload.msg,
-                    type: 'good'
-                }
-            ]
         }}
 
         // CHANGE BLOCK

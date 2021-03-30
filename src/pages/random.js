@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
+import { options } from '../funcs/build';
 
 export default () => {
 
@@ -11,18 +12,6 @@ export default () => {
 
     // ON LOAD..
     useEffect(() => {
-
-        // RACE OPTIONS
-        const options = [
-            'human',
-            'dwarf',
-            'gnome',
-            'nelf',
-            'orc',
-            'troll',
-            'tauren',
-            'undead'
-        ]
 
         // SELECT A RANDOM RACE
         const race = Math.floor((Math.random() * options.length) + 0);

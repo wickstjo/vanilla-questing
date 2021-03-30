@@ -21,10 +21,10 @@ export default () => {
     // ON INITIAL PAGE LOAD
     useEffect(() => {
 
-        // CHECK LOCALSTORAGE HEALTH
+        // INITIALIZE SETTINGS FROM LOCALSTORAGE
         const settings = check_settings();
 
-        // SET GLOBAL STATE & STOP LOADING
+        // SET IN STATE
         dispatch({
             type: 'init',
             payload: {

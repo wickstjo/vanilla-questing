@@ -8238,7 +8238,7 @@
          "waypoints": [
             {
                "coords": { "x": 75, "y": 29 },
-               "align": "top",
+               "align": "right",
                "header": "gordunni scroll",
                "starts": ["the gordunni scroll"],
                "type": "quest"
@@ -8267,14 +8267,14 @@
             },
             {
                "coords": { "x": 60, "y": 60 },
-               "align": "top",
+               "align": "bottom",
                "header": "ruins of isildien",
                "objectives": [["the ogres of feralas", "p2"], "dark ceremony"],
                "type": "objective"
             },
             {
                "coords": { "x": 55, "y": 64 },
-               "align": "top",
+               "align": "bottom",
                "header": "high wilderness",
                "objectives": ["natural materials"],
                "type": "objective"
@@ -8287,6 +8287,7 @@
          "waypoints": [
             {
                "coords": { "x": 55, "y": 64 },
+               "align": "right",
                "header": "high wilderness",
                "objectives": ["natural materials"],
                "special": ["metallic fragments", "resilient sinews"],
@@ -9038,19 +9039,6 @@
                "header": "marvon rivetseeker",
                "ends": ["the stone circle"],
                "type": "quest"
-            }
-         ]
-      },
-      {
-         "zone": "tanaris",
-         "experience": 50.17,
-         "waypoints": [
-            {
-               "coords": { "x": 53, "y": 46 },
-               "align": "bottom",
-               "header": "marvon rivetseeker",
-               "ends": ["the stone circle"],
-               "type": "quest"
             },
             {
                "coords": { "x": 39, "y": 20 },
@@ -9201,24 +9189,6 @@
                "ends": ["testing the vessel"],
                "special": ["fly to dustwallow marsh"],
                "type": "hub"
-            }
-         ]
-      },
-      {
-         "zone": "dustwallow",
-         "experience": 51.02,
-         "waypoints": [
-            {
-               "coords": { "x": 36, "y": 31 },
-               "header": "brackenwall village",
-               "type": "hub"
-            },
-            {
-               "coords": { "x": 46, "y": 57 },
-               "align": "right",
-               "header": "tabetha",
-               "ends": [["tiara of the deep", "d"]],
-               "type": "quest"
             }
          ]
       },
@@ -9924,6 +9894,7 @@
                "ends": ["the disgraced one"],
                "starts": ["the swamp talker"],
                "completed": ["the missing orders"],
+               "special": ["set hearthstone"],
                "type": "hub"
             },
             {

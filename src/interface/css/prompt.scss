@@ -156,22 +156,6 @@
             }
         }
 
-        // CREATE PROFILE ERROR FRAME
-        #errors {
-            min-height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            #row {
-                background: rgba(194, 65, 65, 0.897);
-                border: 2px solid rgba(199, 70, 70, 0.897);
-                color: white;
-                padding: 4px 6px;
-                border-radius: 4px;
-            }
-        }
-
         // IMPORT PROMPT
         #import {
             max-width: 300px;
@@ -248,7 +232,6 @@
             text-shadow: 1px 1px #242424;
             text-transform: capitalize;
 
-            // EACH BOX
             .container {
                 background: rgba(0, 0, 0, 0.473);
                 flex: 1;
@@ -261,12 +244,12 @@
                     position: relative;
                     background-color: rgba(67, 110, 68, 0.973);
                     padding: 6px 8px;
-                    padding-left: 35px;
+                    padding-left: 38px;
                     color: white;
                     margin-bottom: 1px;
                 }
 
-                #brown { padding-left: 6px; }
+                #brown { padding-left: 10px; padding-right: 10px; }
                 #yellow { background-color: rgba(133, 134, 51, 0.973); }
                 #red { background-color: rgba(129, 66, 66, 0.973); }
                 #blue { background-color: #455475f6; }
@@ -304,7 +287,6 @@
 
         // IMPORT ROUTE PROMPT
         #import {
-
             textarea {
                 width: 100%;
                 resize: none;
@@ -333,6 +315,28 @@
             #bad {
                 background: rgba(194, 65, 65, 0.897);
                 border: 2px solid rgba(199, 70, 70, 0.897);
+            }
+        }
+
+        // CONTACT PROMPT
+        #contact {
+            background: rgba(0, 0, 0, 0.473);
+            width: 300px;
+            margin: auto;
+
+            #container {
+                padding: 2px;
+
+                .split {
+                    background: #dfdede;
+                    border-bottom: 2px solid white;
+                    padding: 6px 9px;
+                    margin-bottom: 2px;
+                }
+
+                .split:last-child {
+                    margin-bottom: 0px;
+                }
             }
         }
 

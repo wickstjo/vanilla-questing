@@ -28,6 +28,18 @@ const races = {
     ])
 }
 
+// RACE OPTIONS
+const options = [
+    'human',
+    'dwarf',
+    'gnome',
+    'nelf',
+    'orc',
+    'troll',
+    'tauren',
+    'undead'
+]
+
 // CONSTRUCT REQUESTED ROUTE
 function route(race) {
 
@@ -131,6 +143,7 @@ function custom({ build, faction }) {
     return {
         data: {
             quests: faction === 'alliance' ? alliance_quests : horde_quests,
+            race: 'custom',
             route: build.path,
             hearthstones: hearthstones(build.path)
         },
@@ -175,6 +188,7 @@ function exists(race) {
 }
 
 export {
+    options,
     random,
     specific,
     custom,

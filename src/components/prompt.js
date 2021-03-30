@@ -48,7 +48,7 @@ function Content({ type }) {
 
         // LOADING
         case 'loading': {
-            return <div className="lds-dual-ring" />
+            return <div className={ 'lds-dual-ring' } />
         }
 
         // IMPORT ROUTE
@@ -56,7 +56,7 @@ function Content({ type }) {
             return <ImportRoute />
         }
 
-        // CREATE PROFILE
+        // CREATE BUILD
         case 'create': {
             return <Create />
         }
